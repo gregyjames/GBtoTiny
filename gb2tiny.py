@@ -4,6 +4,7 @@ from tinydb import TinyDB
 def parse(filename, database):
   #create or open db file
   db = TinyDB(database)
+  
   #Get all sequence records for the specified genbank file
   recs = [rec for rec in SeqIO.parse(filename, "genbank")]
 
