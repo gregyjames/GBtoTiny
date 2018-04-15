@@ -8,8 +8,7 @@ def parse(filename, database):
   recs = [rec for rec in SeqIO.parse(filename, "genbank")]
 
   phage = db.table('phage')
-  phage.insert({'organism': recs[0].annotations.get("organism","NOVALUE"), 'molecule_type':recs[0].annotations.get("molecule_type","NOVALUE"), 'accession':recs[0].annotations.get(["accessions"][0],"NOVALUE")}) 
-  
+  phage.insert({'organism': recs[0].annotations.get("organism","NOVALUE"), 'molecule_type':recs[0].annotations.get("molecule_type","NOVALUE"), 'accession':recs[0].annotations.get(["accessions"][0],"NOVALUE")})
   # print the CDS sequence feature summary information for each feature in each
   # sequence record
   genes = db.table('genes')
