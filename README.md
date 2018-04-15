@@ -1,0 +1,2 @@
+# GBtoTiny
+Genbank to TinyDB.
