@@ -1,2 +1,2 @@
 # GBtoTiny
-Genbank to TinyDB.
+Convert Genbank files to TinyDB JSON format.
