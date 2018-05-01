@@ -7,6 +7,6 @@ install:
 # command to run tests
 script:
   - python test.py # or py.test for Python versions 3.5 and below
-  - coverage run gb2tiny.py
+  - coverage run gb2tiny.py coverageX.py
   - coverage xml
   - python-codacy-coverage -r coverage.xml
