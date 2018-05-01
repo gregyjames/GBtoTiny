@@ -12,7 +12,7 @@ def printFunc(gene1max,gene2max,maxsim):
     print Fore.YELLOW + "Gene " + str(gene1max) + " is " + str(maxsim) + "% similar to gene " + str(gene2max)
   else:
     print Fore.GREEN + "Gene " + str(gene1max) + " is " + str(maxsim) + "% similar to gene " + str(gene2max)
-    
+
 def compare(a, b):
   init(autoreset=True)
   
@@ -36,8 +36,8 @@ def compare(a, b):
         
         if(simlarity > maxsim):
           maxsim = simlarity
-          gene1max = gene1["locus_tag"][0] 
-          gene2max = gene2["locus_tag"][0] 
+          gene1max = gene1["locus_tag"][0]
+          gene2max = gene2["locus_tag"][0]
       
       printFunc(gene1max, gene2max, maxsim)
       maxsim = 0
