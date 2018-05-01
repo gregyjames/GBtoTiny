@@ -1,7 +1,24 @@
 from difflib import SequenceMatcher
 from tinydb import TinyDB
 from colorama import *
+from multiprocessing.dummy import Pool as ThreadPool 
 
+def compareGenes(genes1,genes2):
+  maxsim = 0
+  gene1max = ""
+  gene2max = ""
+  for gene1 in genes1:
+      for gene2 in genes2:
+        simlarity = similar(gene1["translation"][0], gene2["translation"][0]) * 100
+        
+        if(simlarity > maxsim):
+          maxsim = simlarity
+          gene1max = gene1["locus_tag"][0]
+          gene2max = gene2["locus_tag"][0]
+      
+      printFunc(gene1max, gene2max, maxsim)
+      maxsim = 0
+      
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
@@ -26,34 +43,7 @@ def compare(a, b):
   print "The second genome is " + str(len(genes2)) + " genes long."
   
   if len(genes1) > len(genes2):
-    maxsim = 0
-    gene1max = ""
-    gene2max = ""
-    
-    for gene1 in genes1:
-      for gene2 in genes2:
-        simlarity = similar(gene1["translation"][0], gene2["translation"][0]) * 100
-        
-        if(simlarity > maxsim):
-          maxsim = simlarity
-          gene1max = gene1["locus_tag"][0]
-          gene2max = gene2["locus_tag"][0]
-      
-      printFunc(gene1max, gene2max, maxsim)
-      maxsim = 0
+    compareGenes(genes1, genes2)
     
   else:
-    maxsim = 0
-    gene1max = ""
-    gene2max = ""
-    
-    for gene2 in genes2:
-      for gene1 in genes1:
-        simlarity = similar(gene1["translation"][0], gene2["translation"][0]) * 100
-        
-        if(simlarity > maxsim):
-          maxsim = simlarity
-          gene1max = gene1["locus_tag"][0] 
-          gene2max = gene2["locus_tag"][0] 
-      printFunc(gene1max, gene2max, maxsim)
-      maxsim = 0
+    compareGenes(genes2, genes1)
