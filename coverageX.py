@@ -1,7 +1,6 @@
 from difflib import SequenceMatcher
 from tinydb import TinyDB
 from colorama import *
-from multiprocessing.dummy import Pool as ThreadPool 
 
 def compareGenes(genes1,genes2):
   maxsim = 0
@@ -19,6 +18,11 @@ def compareGenes(genes1,genes2):
       printFunc(gene1max, gene2max, maxsim)
       maxsim = 0
       
+def makeDB(gene1max, gene2max, maxsim):
+  db = TinyDB("Similarities.json")
+  db.table('genes')
+  db.insert({"gene1":gene1max, "gene2":gene2max, "simperc":maxsim})
+  
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
