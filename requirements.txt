@@ -1,6 +1,6 @@
 argparse==1.2.1
 numpy==1.14.5
-biopython==1.71
+biopython==1.72
 certifi==2018.4.16
 chardet==3.0.4
 coverage==4.5.1
