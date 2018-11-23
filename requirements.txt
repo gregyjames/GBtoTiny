@@ -15,6 +15,6 @@ requests==2.20.1
 six==1.11.0
 tinydb==3.12.1
 urllib3==1.23
-virtualenv==16.0.0
+virtualenv==16.1.0
 webencodings==0.5.1
 wsgiref==0.1.2
