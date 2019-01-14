@@ -1,5 +1,5 @@
 argparse==1.2.1
-numpy==1.15.4
+numpy==1.16.0
 biopython==1.73
 certifi==2018.11.29
 chardet==3.0.4
