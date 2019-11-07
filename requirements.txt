@@ -1,4 +1,4 @@
-argparse==1.2.1
+argparse==1.4.0
 numpy==1.16.2
 biopython==1.75
 certifi==2019.9.11
